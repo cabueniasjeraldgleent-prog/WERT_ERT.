@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WERT - Constitution & By-Laws | Wolf Emergency Response Team</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Crimson Text', 'serif'],
+                    },
+                    colors: {
+                        wert: {
+                            primary: '#1e3a5f',
+                            secondary: '#c41e3a',
+                            accent: '#d4af37',
+                            dark: '#0f172a',
+                            light: '#f8fafc'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section-marker {
+            background: linear-gradient(135deg, #1e3a5f 0%, #c41e3a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .article-card {
+            transition: all 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+        }
+        .toc-link.active {
+            color: #c41e3a;
+            font-weight: 600;
+            border-left: 3px solid #c41e3a;
+            padding-left: 1rem;
+        }
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(30, 58, 95, 0.15) 0%, transparent 50%),
+                linear-gradient(to bottom, transparent, rgba(248, 250, 252, 1));
+        }
+        .dark .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(196, 30, 58, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(30, 58, 95, 0.25) 0%, transparent 50%),
+                linear-gradient(to bottom, transparent, rgba(15, 23, 42, 1));
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #1e3a5f 0%, #c41e3a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200 dark:border-slate-700 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-wert-primary to-wert-secondary rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        W
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">WERT</h1>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Wolf Emergency Response Team</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleTheme()" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                    
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-slate-200 dark:border-slate-700">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#preamble" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-200 dark:hover:bg-slate-700">Preamble</a>
+                <a href="#constitution" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-200 dark:hover:bg-slate-700">Constitution</a>
+                <a href="#bylaws" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-200 dark:hover:bg-slate-700">By-Laws</a>
+                <a href="#ratification" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-200 dark:hover:bg-slate-700">Ratification</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 hero-pattern overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto animate-fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-wert-secondary/10 text-wert-secondary text-sm font-semibold mb-6 border border-wert-secondary/20">
+                    <span class="w-2 h-2 bg-wert-secondary rounded-full mr-2 animate-pulse"></span>
+                    Governing Document
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                    Constitution <span class="text-gradient">&</span> By-Laws
+                </h1>
+                <p class="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-8 font-serif italic">
+                    Of the Wolf Emergency Response Team (WERT)
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Non-Profit NGO</span>
+                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> Emergency Medical Response</span>
+                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg> Humanitarian Service</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-1/2 left-0 w-64 h-64 bg-wert-primary/5 rounded-full blur-3xl -translate-y-1/2"></div>
+        <div class="absolute top-1/3 right-0 w-96 h-96 bg-wert-secondary/5 rounded-full blur-3xl"></div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            
+            <!-- Table of Contents Sidebar -->
+            <aside class="hidden lg:block lg:col-span-3 relative">
+                <nav class="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto pr-4 space-y-1">
+                    <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">On this page</h3>
+                    
+                    <div class="space-y-2 text-sm">
+                        <a href="#preamble" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Preamble</a>
+                        
+                        <div class="pt-2">
+                            <span class="text-xs font-semibold text-wert-primary dark:text-wert-accent pl-3">Constitution</span>
+                            <div class="mt-1 space-y-1">
+                                <a href="#art-i" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article I: Name & Nature</a>
+                                <a href="#art-ii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article II: Vision & Mission</a>
+                                <a href="#art-iii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article III: Legal Capacity</a>
+                                <a href="#art-iv" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article IV: Membership</a>
+                                <a href="#art-v" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article V: Governance</a>
+                                <a href="#art-vi" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article VI: Meetings</a>
+                                <a href="#art-vii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article VII: Financial</a>
+                                <a href="#art-viii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article VIII: Safety</a>
+                                <a href="#art-ix" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article IX: Amendments</a>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <span class="text-xs font-semibold text-wert-primary dark:text-wert-accent pl-3">By-Laws</span>
+                            <div class="mt-1 space-y-1">
+                                <a href="#bylaws-i" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article I: Officer Duties</a>
+                                <a href="#bylaws-ii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article II: Membership Process</a>
+                                <a href="#bylaws-iii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article III: Code of Conduct</a>
+                                <a href="#bylaws-iv" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article IV: Uniform</a>
+                                <a href="#bylaws-v" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article V: Deployment</a>
+                                <a href="#bylaws-vi" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article VI: Discipline</a>
+                                <a href="#bylaws-vii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article VII: Data Privacy</a>
+                                <a href="#bylaws-viii" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Article VIII: Amendments</a>
+                            </div>
+                        </div>
+                        
+                        <a href="#ratification" class="toc-link block py-1 text-slate-600 dark:text-slate-400 hover:text-wert-secondary transition-colors border-l-2 border-transparent pl-3">Ratification</a>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="lg:col-span-9 space-y-12">
+                
+                <!-- Preamble -->
+                <section id="preamble" class="scroll-mt-24">
+                    <div class="glass-panel rounded-2xl p-8 lg:p-12 border-l-4 border-wert-secondary">
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6 section-marker">Preamble</h2>
+                        <div class="prose dark:prose-invert max-w-none font-serif text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+                            <p class="mb-4">
+                                We, the members of the <strong class="text-wert-secondary">Wolf Emergency Response Team (WERT)</strong>, a non-governmental and non-profit emergency medical response organization, committed to the preservation of life, protection of health, and service to humanity, do hereby establish this Constitution and By-Laws.
+                            </p>
+                            <p>
+                                Guided by the principles of <strong>humanitarian service, discipline, integrity, professionalism, and excellence</strong>, we bind ourselves to uphold the highest standards in emergency response, disaster management, and community service.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Constitution Header -->
+                <div id="constitution" class="scroll-mt-24 pt-8">
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="h-px flex-1 bg-gradient-to-r from-wert-primary to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-wert-primary dark:text-wert-accent uppercase tracking-widest">The Constitution</h2>
+                        <div class="h-px flex-1 bg-gradient-to-l from-wert-primary to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Article I -->
+                <article id="art-i" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">I</span>
+                            Name and Nature
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Section 1. Name</h4>
+                            <p class="text-slate-600 dark:text-slate-300">The name of the organization shall be <strong class="text-wert-secondary">Wolf Emergency Response Team (WERT)</strong>, hereinafter referred to as the "Organization."</p>
+                        </div>
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Section 2. Nature</h4>
+                            <p class="text-slate-600 dark:text-slate-300 mb-3">The Organization is a <strong>non-stock, non-profit, non-governmental organization (NGO)</strong> dedicated to:</p>
+                            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 ml-4">
+                                <li>Emergency medical services</li>
+                                <li>Disaster response</li>
+                                <li>Community health initiatives</li>
+                            </ul>
+                            <p class="mt-3 text-slate-600 dark:text-slate-300">It operates independently but may collaborate with <strong>government agencies, private institutions, and partner organizations</strong>.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article II -->
+                <article id="art-ii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">II</span>
+                            Vision, Mission, and Objectives
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-6">
+                        <div class="bg-wert-primary/5 dark:bg-wert-primary/10 rounded-xl p-6 border-l-4 border-wert-primary">
+                            <h4 class="text-sm font-bold text-wert-primary dark:text-wert-accent uppercase tracking-wider mb-2">Vision</h4>
+                            <p class="text-slate-700 dark:text-slate-300 font-medium">To be a <strong>highly capable, trusted, and community-based emergency response organization</strong>, recognized for excellence, reliability, and humanitarian service.</p>
+                        </div>
+                        
+                        <div class="bg-wert-secondary/5 dark:bg-wert-secondary/10 rounded-xl p-6 border-l-4 border-wert-secondary">
+                            <h4 class="text-sm font-bold text-wert-secondary uppercase tracking-wider mb-2">Mission</h4>
+                            <p class="text-slate-700 dark:text-slate-300 font-medium">To provide <strong>rapid, organized, and compassionate emergency medical response</strong>, while promoting preparedness, resilience, and public safety.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Objectives</h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-wert-primary text-white rounded-full flex items-center justify-center text-xs font-bold">a</span>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">Provide emergency medical assistance during disasters, incidents, and public events</p>
+                                </div>
+                                <div class="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-wert-primary text-white rounded-full flex items-center justify-center text-xs font-bold">b</span>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">Conduct <strong>First Aid, CPR/AED, and disaster preparedness training</strong></p>
+                                </div>
+                                <div class="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-wert-primary text-white rounded-full flex items-center justify-center text-xs font-bold">c</span>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">Support <strong>Local Government Units (LGUs)</strong> and response agencies</p>
+                                </div>
+                                <div class="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-wert-primary text-white rounded-full flex items-center justify-center text-xs font-bold">d</span>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">Promote <strong>health awareness and community resilience</strong></p>
+                                </div>
+                                <div class="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-wert-primary text-white rounded-full flex items-center justify-center text-xs font-bold">e</span>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">Develop <strong>skilled, disciplined, and ethical responders</strong></p>
+                                </div>
+                                <div class="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-wert-primary text-white rounded-full flex items-center justify-center text-xs font-bold">f</span>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">Maintain readiness for <strong>rapid deployment operations</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article III -->
+                <article id="art-iii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">III</span>
+                            Legal Capacity and Powers
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <p class="text-slate-600 dark:text-slate-300 mb-4">The Organization shall have the authority to:</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-wert-secondary font-bold mr-3">a.</span>
+                                <span class="text-slate-700 dark:text-slate-300">Enter into <strong>MOAs, partnerships, and agreements</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-wert-secondary font-bold mr-3">b.</span>
+                                <span class="text-slate-700 dark:text-slate-300">Accept <strong>donations, grants, and sponsorships</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-wert-secondary font-bold mr-3">c.</span>
+                                <span class="text-slate-700 dark:text-slate-300">Acquire and manage equipment, supplies, and assets</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-wert-secondary font-bold mr-3">d.</span>
+                                <span class="text-slate-700 dark:text-slate-300">Conduct trainings, drills, and emergency operations</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-wert-secondary font-bold mr-3">e.</span>
+                                <span class="text-slate-700 dark:text-slate-300">Establish and enforce internal rules and disciplinary measures</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-wert-secondary font-bold mr-3">f.</span>
+                                <span class="text-slate-700 dark:text-slate-300">Represent the Organization in official engagements</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article IV -->
+                <article id="art-iv" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">IV</span>
+                            Membership
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-8">
+                        <div>
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-wert-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Section 1. Eligibility
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-lg">
+                                    <p class="text-sm text-slate-600 dark:text-slate-300"><span class="font-semibold text-slate-900 dark:text-white">Age:</span> At least <strong class="text-wert-secondary">18 years</strong> (or with parental consent if minor)</p>
+                                </div>
+                                <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-lg">
+                                    <p class="text-sm text-slate-600 dark:text-slate-300"><span class="font-semibold text-slate-900 dark:text-white">Character:</span> <strong>Good moral character</strong>, no misconduct record</p>
+                                </div>
+                                <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-lg">
+                                    <p class="text-sm text-slate-600 dark:text-slate-300"><span class="font-semibold text-slate-900 dark:text-white">Fitness:</span> <strong>Physically and mentally fit</strong> for emergency response</p>
+                                </div>
+                                <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-lg">
+                                    <p class="text-sm text-slate-600 dark:text-slate-300"><span class="font-semibold text-slate-900 dark:text-white">Training:</span> Willing to undergo <strong>training and probation</strong></p>
+                                </div>
+                                <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-lg md:col-span-2">
+                                    <p class="text-sm text-slate-600 dark:text-slate-300"><span class="font-semibold text-slate-900 dark:text-white">Commitment:</span> Agree to abide by the <strong>Constitution, By-Laws, rules, and regulations</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Section 2. Classification of Membership</h4>
+                            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div class="bg-gradient-to-br from-wert-primary/10 to-wert-primary/5 dark:from-wert-primary/20 dark:to-wert-primary/10 p-4 rounded-xl border border-wert-primary/20">
+                                    <h5 class="font-bold text-wert-primary dark:text-wert-accent mb-2">Active Members</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Completed all training, qualified for deployment and full participation</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-amber-500/10 to-amber-500/5 dark:from-amber-500/20 dark:to-amber-500/10 p-4 rounded-xl border border-amber-500/20">
+                                    <h5 class="font-bold text-amber-600 dark:text-amber-400 mb-2">Probationary</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Undergoing training with limited rights until full acceptance</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 dark:from-emerald-500/20 dark:to-emerald-500/10 p-4 rounded-xl border border-emerald-500/20">
+                                    <h5 class="font-bold text-emerald-600 dark:text-emerald-400 mb-2">Volunteer</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Render voluntary service without full membership obligations</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-purple-500/10 to-purple-500/5 dark:from-purple-500/20 dark:to-purple-500/10 p-4 rounded-xl border border-purple-500/20">
+                                    <h5 class="font-bold text-purple-600 dark:text-purple-400 mb-2">Honorary</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Recognized for outstanding support, may not be operational</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Section 3. Rights of Active Members</h4>
+                            <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start"><span class="text-wert-secondary mr-2">•</span> To <strong>vote and be elected</strong> to any position</li>
+                                <li class="flex items-start"><span class="text-wert-secondary mr-2">•</span> To <strong>participate in all official activities</strong></li>
+                                <li class="flex items-start"><span class="text-wert-secondary mr-2">•</span> To receive <strong>training and certifications</strong></li>
+                                <li class="flex items-start"><span class="text-wert-secondary mr-2">•</span> To be informed of organizational matters</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-6 border-l-4 border-wert-secondary">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-3">Good Standing Requirements</h4>
+                            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                                <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Comply with attendance requirements</li>
+                                <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>No pending disciplinary action</li>
+                                <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Active participation in organizational activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article V -->
+                <article id="art-v" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">V</span>
+                            Governance and Officers
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-3 border-wert-primary">
+                                <span class="text-2xl mr-3">👑</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Team Leader</p>
+                                    <p class="text-xs text-slate-500">Commander</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">🎯</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Deputy Leader</p>
+                                    <p class="text-xs text-slate-500">Assistant Commander</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">🏥</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Medical Officer</p>
+                                    <p class="text-xs text-slate-500">Health Protocols</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">⚡</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Operations Officer</p>
+                                    <p class="text-xs text-slate-500">Field Operations</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">📚</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Training Officer</p>
+                                    <p class="text-xs text-slate-500">Capacity Building</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">📦</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Logistics Officer</p>
+                                    <p class="text-xs text-slate-500">Equipment & Supply</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">📡</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Communications Officer</p>
+                                    <p class="text-xs text-slate-500">Signal & Coordination</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">📝</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Secretary</p>
+                                    <p class="text-xs text-slate-500">Records & Documentation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                <span class="text-2xl mr-3">💰</span>
+                                <div>
+                                    <p class="font-semibold text-slate-900 dark:text-white text-sm">Treasurer</p>
+                                    <p class="text-xs text-slate-500">Financial Management</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/30 p-4 rounded-lg">
+                            <span class="flex items-center"><svg class="w-4 h-4 mr-1 text-wert-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Election: <strong class="ml-1">Majority vote (50% + 1)</strong></span>
+                            <span class="flex items-center"><svg class="w-4 h-4 mr-1 text-wert-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> Removal: <strong class="ml-1">Due process + majority vote</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article VI -->
+                <article id="art-vi" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">VI</span>
+                            Meetings
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center p-6 bg-slate-50 dark:bg-slate-700/30 rounded-xl">
+                                <div class="w-12 h-12 bg-wert-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-wert-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-1">Regular Meetings</h4>
+                                <p class="text-2xl font-bold text-wert-primary dark:text-wert-accent">Monthly</p>
+                            </div>
+                            <div class="text-center p-6 bg-slate-50 dark:bg-slate-700/30 rounded-xl">
+                                <div class="w-12 h-12 bg-wert-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-wert-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-1">Special Meetings</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">By Team Leader or <strong>1/3 of members</strong></p>
+                            </div>
+                            <div class="text-center p-6 bg-slate-50 dark:bg-slate-700/30 rounded-xl">
+                                <div class="w-12 h-12 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                </div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-1">Quorum</h4>
+                                <p class="text-2xl font-bold text-amber-600">Majority (50% + 1)</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article VII -->
+                <article id="art-vii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">VII</span>
+                            Financial Management
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Sources of Funds</h4>
+                            <div class="grid sm:grid-cols-3 gap-4">
+                                <div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg">
+                                    <h5 class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">Donations</h5>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Voluntary contributions from individuals, estates, or private entities</p>
+                                </div>
+                                <div class="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                                    <h5 class="font-semibold text-blue-700 dark:text-blue-400 mb-2">Grants</h5>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Funding from governmental bodies, NGOs, or international foundations</p>
+                                </div>
+                                <div class="p-4 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg">
+                                    <h5 class="font-semibold text-purple-700 dark:text-purple-400 mb-2">Sponsorships</h5>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Corporate partners for brand visibility or CSR alignment</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Financial Controls</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-wert-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 dark:text-white">Documentation</h5>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">Every transaction must be supported by original receipts, invoices, or legal vouchers. No disbursement without proper authorization.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-wert-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 dark:text-white">Audit & Transparency</h5>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">Records open for inspection by authorized members. Subject to <strong>annual external audit</strong>. Periodic financial reports to the board.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-wert-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 dark:text-white">Fiduciary Restriction</h5>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">All funds utilized <strong>strictly for organizational purposes</strong>. No benefit to private individuals except reasonable compensation for services.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article VIII -->
+                <article id="art-viii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">VIII</span>
+                            Safety, Liability, and Ethics
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg">
+                            <p class="text-red-800 dark:text-red-300 font-semibold">The Organization prioritizes <strong>member and patient safety at all times</strong></p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-wert-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                    Standard Protocols
+                                </h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">All operations follow <strong>standard medical and ethical protocols</strong></p>
+                                
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-3">Liability Exclusions</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">The Organization shall not be liable for incidents arising from:</p>
+                                <ul class="list-disc list-inside text-sm text-slate-600 dark:text-slate-300 space-y-1 ml-2">
+                                    <li>Unavoidable emergencies</li>
+                                    <li>External hazards beyond control</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/30 p-6 rounded-xl">
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-wert-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                                    Member Requirements
+                                </h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">Members may be required to sign <strong>waivers and assumption of risk forms</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article IX -->
+                <article id="art-ix" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-primary to-wert-primary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">IX</span>
+                            Amendments
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 flex items-center justify-between bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20">
+                        <div>
+                            <p class="text-slate-700 dark:text-slate-300">Amendments require</p>
+                            <p class="text-3xl font-bold text-amber-600 dark:text-amber-400">Two-thirds (2/3) Vote</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">with prior notice</p>
+                        </div>
+                        <div class="text-6xl opacity-20">✋</div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Header -->
+                <div id="bylaws" class="scroll-mt-24 pt-12">
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="h-px flex-1 bg-gradient-to-r from-wert-secondary to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-wert-secondary uppercase tracking-widest">By-Laws of WERT</h2>
+                        <div class="h-px flex-1 bg-gradient-to-l from-wert-secondary to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- By-Laws Article I -->
+                <article id="bylaws-i" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">I</span>
+                            Duties of Officers
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-6">
+                        <div>
+                            <h4 class="text-sm font-bold text-wert-secondary uppercase tracking-wider mb-3">Executive Leadership</h4>
+                            <div class="space-y-3">
+                                <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white">Team Leader</h5>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Ultimate authority and command. Responsible for high-level decision-making, external representation, and presiding over meetings.</p>
+                                </div>
+                                <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white">Deputy Leader</h5>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Primary assistant to Team Leader. Assumes all powers and duties in the Leader's absence, incapacity, or resignation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <h4 class="text-sm font-bold text-wert-secondary uppercase tracking-wider mb-3">Operational Staff</h4>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm">Operations Officer</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Strategic planning and tactical execution of deployments</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm">Medical Officer</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Medical protocols and patient care standards</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm">Training Officer</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Curriculum design and skills evaluations</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm">Logistics Officer</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Equipment acquisition and inventory management</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg sm:col-span-2">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm">Communications Officer</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Communication infrastructure, signal logs, inter-agency coordination, and incident reporting</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <h4 class="text-sm font-bold text-wert-secondary uppercase tracking-wider mb-3">Administrative Staff</h4>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm">Secretary</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Custodian of non-financial records, meeting minutes, membership roster</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm">Treasurer</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Custodian of funds, financial reporting, budget preparation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Article II -->
+                <article id="bylaws-ii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">II</span>
+                            Membership Process
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <p class="text-slate-600 dark:text-slate-300 mb-6 italic">Comprehensive systematic process to ensure competence, discipline, and commitment to humanitarian service.</p>
+                        
+                        <div class="relative">
+                            <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-wert-primary via-wert-secondary to-wert-primary"></div>
+                            
+                            <div class="space-y-6">
+                                <div class="relative pl-12">
+                                    <div class="absolute left-0 w-8 h-8 bg-wert-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                                    <h4 class="font-semibold text-slate-900 dark:text-white">Recruitment & Application</h4>
+                                    <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>Expression of Interest</li>
+                                        <li>Submission of requirements (Application Form, Valid ID, Medical Clearance, Parental Consent for minors)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="relative pl-12">
+                                    <div class="absolute left-0 w-8 h-8 bg-wert-primary text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                                    <h4 class="font-semibold text-slate-900 dark:text-white">Screening & Validation</h4>
+                                    <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>Initial Screening</li>
+                                        <li>Background Check (if applicable)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="relative pl-12">
+                                    <div class="absolute left-0 w-8 h-8 bg-wert-primary text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                                    <h4 class="font-semibold text-slate-900 dark:text-white">Interview</h4>
+                                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Panel Interview assessing communication skills, attitude, willingness to serve, and readiness</p>
+                                </div>
+                                
+                                <div class="relative pl-12">
+                                    <div class="absolute left-0 w-8 h-8 bg-wert-secondary text-white rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                                    <h4 class="font-semibold text-slate-900 dark:text-white">Training & Probation</h4>
+                                    <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>Mandatory Training: Basic First Aid, CPR/AED, Emergency Response Protocols</li>
+                                        <li>Probationary Period: Serve as Probationary Member, demonstrate discipline and teamwork</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="relative pl-12">
+                                    <div class="absolute left-0 w-8 h-8 bg-wert-secondary text-white rounded-full flex items-center justify-center text-sm font-bold">5</div>
+                                    <h4 class="font-semibold text-slate-900 dark:text-white">Evaluation</h4>
+                                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Performance Assessment based on skills, attendance, behavior, and deployment readiness</p>
+                                </div>
+                                
+                                <div class="relative pl-12">
+                                    <div class="absolute left-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">6</div>
+                                    <h4 class="font-semibold text-slate-900 dark:text-white">Acceptance & Oath</h4>
+                                    <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>Final Approval by Team Leader</li>
+                                        <li>Oath-Taking Ceremony to become Active Member</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="relative pl-12">
+                                    <div class="absolute left-0 w-8 h-8 bg-wert-accent text-white rounded-full flex items-center justify-center text-sm font-bold">7</div>
+                                    <h4 class="font-semibold text-slate-900 dark:text-white">Continuous Development</h4>
+                                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Ongoing training, certification upgrades, drills, and maintaining operational readiness</p>
+                                </div>
+                            </div>
+
+                                                            </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6">
+                            <h4 class="font-bold text-red-800 dark:text-red-400 mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                Grounds for Termination
+                            </h4>
+                            <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2">•</span>
+                                    <span class="text-slate-700 dark:text-slate-300"><strong>Misconduct:</strong> Improper, unethical, or unprofessional behavior</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2">•</span>
+                                    <span class="text-slate-700 dark:text-slate-300"><strong>Violation of Rules:</strong> Non-compliance with Constitution or SOPs</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2">•</span>
+                                    <span class="text-slate-700 dark:text-slate-300"><strong>Absenteeism:</strong> Unjustified absence from meetings/deployments</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-red-600 mr-2">•</span>
+                                    <span class="text-slate-700 dark:text-slate-300"><strong>Prejudicial Actions:</strong> Acts damaging WERT's reputation</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+                            <h4 class="font-bold text-blue-800 dark:text-blue-400 mb-4">Due Process Requirement</h4>
+                            <p class="text-sm text-slate-700 dark:text-slate-300 mb-3">No suspension/expulsion without strict observance of due process:</p>
+                            <ol class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-decimal list-inside">
+                                <li><strong>Written Notice of Charge</strong> - specifying complaint and facts</li>
+                                <li><strong>Opportunity to be Heard</strong> - written explanation and/or appearance</li>
+                                <li><strong>Investigation and Evaluation</strong> - fair, impartial, thorough</li>
+                                <li><strong>Deliberation and Recommendation</strong> by disciplinary body</li>
+                                <li><strong>Decision and Approval</strong> - formal written decision</li>
+                                <li><strong>Notice of Decision</strong> - formal written notification</li>
+                            </ol>
+                            <div class="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
+                                <p class="text-xs text-slate-600 dark:text-slate-400"><strong>Safeguards:</strong> Impartiality (no involved officer in decision), Right to Appeal (7-15 days), Confidential documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Article III -->
+                <article id="bylaws-iii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">III</span>
+                            Code of Conduct
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-4 border-wert-primary">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">1. Professionalism & Integrity</h4>
+                                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li><strong>Honesty:</strong> Truthful in all reports and communications</li>
+                                        <li><strong>Conduct:</strong> Decorum expected of emergency responders</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-4 border-wert-secondary">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">2. Patient Confidentiality</h4>
+                                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li><strong>Non-Disclosure:</strong> Strict confidentiality of patient records</li>
+                                        <li><strong>Media Policy:</strong> No unauthorized photos/videos of patients</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-4 border-amber-500">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">3. Chain of Command</h4>
+                                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>Follow all lawful orders promptly</li>
+                                        <li>Address grievances after mission completion</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-4 border-purple-500">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">4. Ethical Use of Authority</h4>
+                                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>No abuse of power for personal gain</li>
+                                        <li>Resources used solely for intended purposes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-4 border-emerald-500">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">5. Reputational Management</h4>
+                                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>Only authorized PIO speaks to media</li>
+                                        <li>No action undermining team reputation</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-4 border-blue-500">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">6. Operational Safety</h4>
+                                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                                        <li>Maintain physical & mental fitness</li>
+                                        <li>Self-report unfitness for duty</li>
+                                        <li>Proper equipment care</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-500">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">7. Substance Use - Zero Tolerance</h4>
+                                    <p class="text-sm text-slate-700 dark:text-slate-300">Prohibited from duty while under influence of alcohol, illegal drugs, or impairing medication. No alcohol while in uniform.</p>
+                                </div>
+                                
+                                <div class="p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border-l-4 border-slate-500">
+                                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2">8-10. Additional Provisions</h4>
+                                    <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                                        <li><strong>Social Media:</strong> No implied WERT endorsement of controversial views</li>
+                                        <li><strong>Photography:</strong> Unauthorized scene photography prohibited</li>
+                                        <li><strong>Harassment:</strong> Professional environment free from discrimination</li>
+                                        <li><strong>Duty to Report:</strong> Obligation to report violations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Article IV -->
+                <article id="bylaws-iv" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">IV</span>
+                            Uniform and Identification
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-xl">
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-2 flex items-center">
+                                    <span class="text-2xl mr-2">👔</span> Official Uniform
+                                </h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">Required during trainings, deployments, and authorized activities. Must be worn properly and completely.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-xl">
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-2 flex items-center">
+                                    <span class="text-2xl mr-2">🪪</span> Identification
+                                </h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">Official ID must be displayed at all times while on duty. Proof of authority for partner agencies.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-xl">
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-2 flex items-center">
+                                    <span class="text-2xl mr-2">✂️</span> Grooming
+                                </h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">Proper grooming, cleanliness, and professional appearance. Neat and presentable uniforms.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-xl sm:col-span-2 lg:col-span-2">
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-2 flex items-center">
+                                    <span class="text-2xl mr-2">⚠️</span> Proper Use
+                                </h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">Uniform and ID <strong>only for authorized activities</strong>. Unauthorized use, misuse, or representation for personal gain strictly prohibited.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 dark:border-slate-600 rounded-xl">
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-2 flex items-center">
+                                    <span class="text-2xl mr-2">📋</span> Accountability
+                                </h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">Members responsible for care and security. Loss or damage must be reported immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Article V -->
+                <article id="bylaws-v" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">V</span>
+                            Deployment Protocols
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-6">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-5 border-t-4 border-emerald-500">
+                                <h4 class="font-bold text-emerald-800 dark:text-emerald-400 mb-3 flex items-center">
+                                    <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">1</span>
+                                    Pre-Deployment
+                                </h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mb-2 font-semibold">The Ready Phase</p>
+                                <ul class="text-sm text-slate-700 dark:text-slate-300 space-y-2">
+                                    <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Official activation only</li>
+                                    <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Attendance logged by Secretary/Operations Officer</li>
+                                    <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Mandatory operational briefing</li>
+                                    <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Equipment & PPE audit by Logistics Officer</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-5 border-t-4 border-amber-500">
+                                <h4 class="font-bold text-amber-800 dark:text-amber-400 mb-3 flex items-center">
+                                    <span class="bg-amber-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">2</span>
+                                    During Deployment
+                                </h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mb-2 font-semibold">The Active Phase</p>
+                                <ul class="text-sm text-slate-700 dark:text-slate-300 space-y-2">
+                                    <li class="flex items-start"><span class="text-amber-500 mr-2">⚡</span> Unity of Command (ICS)</li>
+                                    <li class="flex items-start"><span class="text-amber-500 mr-2">⚡</span> "Safety Stop" authority</li>
+                                    <li class="flex items-start"><span class="text-amber-500 mr-2">⚡</span> Standard of Care protocols</li>
+                                    <li class="flex items-start"><span class="text-amber-500 mr-2">⚡</span> Radio Discipline maintained</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-5 border-t-4 border-blue-500">
+                                <h4 class="font-bold text-blue-800 dark:text-blue-400 mb-3 flex items-center">
+                                    <span class="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">3</span>
+                                    Post-Deployment
+                                </h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mb-2 font-semibold">The Recovery Phase</p>
+                                <ul class="text-sm text-slate-700 dark:text-slate-300 space-y-2">
+                                    <li class="flex items-start"><span class="text-blue-500 mr-2">↻</span> "Hot Wash" debriefing</li>
+                                    <li class="flex items-start"><span class="text-blue-500 mr-2">↻</span> PCRs within 24 hours</li>
+                                    <li class="flex items-start"><span class="text-blue-500 mr-2">↻</span> After-Action Report (AAR)</li>
+                                    <li class="flex items-start"><span class="text-blue-500 mr-2">↻</span> Equipment recovery & wellness check</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Article VI -->
+                <article id="bylaws-vi" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">VI</span>
+                            Discipline and Sanctions
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Progressive Discipline Model</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-400">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold mr-4">1</div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 dark:text-white">Verbal Warning</h5>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">Minor infractions. Record kept for 6 months.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-orange-400">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold mr-4">2</div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 dark:text-white">Written Warning</h5>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">Repeated minor or significant single violation. Specific breach documented.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-400">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-red-400 rounded-full flex items-center justify-center text-white font-bold mr-4">3</div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 dark:text-white">Suspension</h5>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">Temporary removal from all activities. For serious misconduct or during investigation.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 bg-red-100 dark:bg-red-900/30 rounded-lg border-l-4 border-red-600">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white font-bold mr-4">4</div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 dark:text-white">Expulsion</h5>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">Permanent termination. Reserved for egregious breaches, safety violations, or criminal activity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 italic">Team Leader and Board reserve right to bypass steps for severe violations (criminal acts, gross negligence).</p>
+                        </div>
+                        
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Due Process Rights</h4>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm mb-1">Notification</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Written notice of specific charges and evidence</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm mb-1">Right to be Heard</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Formal hearing with Executive Leadership</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm mb-1">Impartial Review</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">No involved officer as sole decider</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/30 rounded-lg">
+                                    <h5 class="font-semibold text-slate-900 dark:text-white text-sm mb-1">Documentation</h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">Incident reports, action plans, final decisions</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
+                            <h4 class="font-semibold text-blue-800 dark:text-blue-400 mb-2">Appeals Process</h4>
+                            <p class="text-sm text-slate-700 dark:text-slate-300">Members facing <strong>Suspension</strong> or <strong>Expulsion</strong> may appeal to Board/Appeals Committee within <strong>7 days</strong>. Appeals Committee decision is final and binding.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Article VII -->
+                <article id="bylaws-vii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">VII</span>
+                            Data Privacy and Confidentiality
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 space-y-6">
+                        <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg">
+                            <h4 class="font-bold text-red-800 dark:text-red-400 mb-2">Protected Information</h4>
+                            <ul class="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                                <li><strong>Patient Care Records (PCRs):</strong> Medical history, treatment, physical condition</li>
+                                <li><strong>Personally Identifiable Information (PII):</strong> Names, addresses, contact details, IDs</li>
+                                <li><strong>Operational Data:</strong> Secure locations, radio frequencies, security protocols</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-3">Access and Authorization</h4>
+                                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                                    <li class="flex items-start"><span class="text-wert-secondary mr-2">🔒</span> <strong>Principle of Least Privilege</strong> - Access restricted to necessary personnel</li>
+                                    <li class="flex items-start"><span class="text-wert-secondary mr-2">🔒</span> <strong>Medical Officer</strong> as primary custodian of patient records</li>
+                                    <li class="flex items-start"><span class="text-wert-secondary mr-2">🔒</span> <strong>Credential Security</strong> - Members responsible for login security</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white mb-3">Storage and Security</h4>
+                                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                                    <li class="flex items-start"><span class="text-wert-secondary mr-2">📁</span> <strong>Physical:</strong> Locked filing cabinets in secure facility</li>
+                                    <li class="flex items-start"><span class="text-wert-secondary mr-2">💾</span> <strong>Digital:</strong> Encrypted platforms, password-protected, backed up</li>
+                                    <li class="flex items-start"><span class="text-wert-secondary mr-2">🗑️</span> <strong>Retention:</strong> Secure shredding and permanent deletion</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-slate-800 text-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                Survival of Confidentiality
+                            </h4>
+                            <p class="text-sm text-slate-300">The obligation to maintain confidentiality is <strong>permanent</strong>. Duty remains even after resignation, expulsion, or organizational dissolution.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- By-Laws Article VIII -->
+                <article id="bylaws-viii" class="scroll-mt-24 article-card bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-wert-secondary to-wert-secondary/80 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center mr-3 text-sm">VIII</span>
+                            Amendments
+                        </h3>
+                    </div>
+                    <div class="p-6 lg:p-8 flex items-center justify-between bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700">
+                        <div>
+                            <p class="text-slate-700 dark:text-slate-300">By-Law Amendments require</p>
+                            <p class="text-3xl font-bold text-wert-primary dark:text-wert-accent">Majority Vote</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">of active members</p>
+                        </div>
+                        <div class="text-6xl opacity-20">🗳️</div>
+                    </div>
+                </article>
+
+                <!-- Ratification Section -->
+                <section id="ratification" class="scroll-mt-24">
+                    <div class="glass-panel rounded-2xl p-8 lg:p-12 border-2 border-wert-accent/30 bg-gradient-to-br from-wert-accent/5 to-wert-primary/5">
+                        <div class="text-center mb-8">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-wert-accent/20 rounded-full mb-4">
+                                <svg class="w-8 h-8 text-wert-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Ratification and Adoption</h2>
+                            <p class="text-slate-600 dark:text-slate-400 font-serif italic">Certification of Adoption</p>
+                        </div>
+                        
+                        <div class="prose dark:prose-invert max-w-none font-serif text-slate-700 dark:text-slate-300 mb-8 text-center">
+                            <p class="text-lg">The undersigned, being the duly elected and acting officers of the <strong class="text-wert-secondary">Wolf Emergency Response Team (WERT)</strong>, do hereby certify that the foregoing Bylaws, consisting of <strong>Articles I through VIII</strong>, were officially adopted by a majority vote of the membership during the General Assembly.</p>
+                            <p class="mt-4">These Bylaws shall take effect immediately and supersede any prior verbal or written agreements, protocols, or governing documents.</p>
+                        </div>
+                        
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-200 dark:border-slate-600 text-center">
+                                <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Team Leader</p>
+                                <div class="h-12 border-b border-slate-300 dark:border-slate-500 mb-2"></div>
+                                <p class="text-xs text-slate-400">Signature over Printed Name</p>
+                                <p class="text-xs text-slate-400 mt-1">Date: ____________</p>
+                            </div>
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-200 dark:border-slate-600 text-center">
+                                <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Deputy Leader</p>
+                                <div class="h-12 border-b border-slate-300 dark:border-slate-500 mb-2"></div>
+                                <p class="text-xs text-slate-400">Signature over Printed Name</p>
+                                <p class="text-xs text-slate-400 mt-1">Date: ____________</p>
+                            </div>
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-200 dark:border-slate-600 text-center">
+                                <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Secretary</p>
+                                <div class="h-12 border-b border-slate-300 dark:border-slate-500 mb-2"></div>
+                                <p class="text-xs text-slate-400">Signature over Printed Name</p>
+                                <p class="text-xs text-slate-400 mt-1">Date: ____________</p>
+                            </div>
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-200 dark:border-slate-600 text-center">
+                                <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Treasurer</p>
+                                <div class="h-12 border-b border-slate-300 dark:border-slate-500 mb-2"></div>
+                                <p class="text-xs text-slate-400">Signature over Printed Name</p>
+                                <p class="text-xs text-slate-400 mt-1">Date: ____________</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-lg p-6 border-l-4 border-wert-accent">
+                            <h3 class="font-bold text-slate-900 dark:text-white mb-2">Attestation</h3>
+                            <p class="text-sm text-slate-700 dark:text-slate-300 italic mb-4">"I, the Secretary of WERT, do hereby attest that these Bylaws are a true and correct copy of the regulations of this organization as of the date of ratification."</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Secretary Initial: <span class="font-bold text-slate-900 dark:text-white">K</span></p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-500">APPROVED BY:</p>
+                                    <p class="text-sm font-semibold text-slate-900 dark:text-white">EZEKIEL ROY</p>
+                                    <p class="text-sm font-semibold text-slate-900 dark:text-white">DANIEL CADUNGOG</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="mt-20 pt-8 border-t border-slate-200 dark:border-slate-700 text-center">
+                    <div class="flex items-center justify-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-wert-primary to-wert-secondary rounded-lg flex items-center justify-center text-white font-bold text-sm">W</div>
+                        <span class="text-slate-600 dark:text-slate-400 font-semibold">WERT</span>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-500">
+                        Wolf Emergency Response Team • Constitution and By-Laws<br>
+                        <span class="text-xs">Non-Profit Emergency Medical Response Organization</span>
+                    </p>
+                    <p class="text-xs text-slate-400 dark:text-slate-600 mt-4">
+                        Document generated from official governing documents
+                    </p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-8 right-8 bg-wert-primary hover:bg-wert-secondary text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 translate-y-10 z-40" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+        
+        // Check for saved theme preference or prefer-color-scheme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Back to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Show/hide back to top button
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                btn.classList.remove('opacity-0', 'translate-y-10');
+            } else {
+                btn.classList.add('opacity-0', 'translate-y-10');
+            }
+        });
+        
+        // Active TOC Link Highlighting
+        const sections = document.querySelectorAll('section[id], article[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
